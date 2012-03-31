@@ -2,9 +2,48 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="clippy.css" />
 		<script type="text/javascript" src="msoffice.js"></script>
+		
+		<style type="text/css">
+			#main {
+				-webkit-box-sizing:border-box;
+				   -moz-box-sizing:border-box;
+				        box-sizing:border-box;
+				position:absolute;
+				top:0px;
+				left:0px;
+				width:100%;
+				height:100%;
+				padding:16px;
+				overflow:auto;
+				
+				background-color:lightBlue;
+				
+				font-family:Roboto, Helvetica, Arial, sans-serif;
+			}
+			#main textarea {
+				width:200px;
+				height:40%;
+				font-family:"Microsoft Sans", sans-serif;
+				font-size:10pt;
+				
+				border-radius:9px;
+				padding:9px;
+				border-style:solid;
+				border-color:gray;
+				border-width:1px;
+				
+				-webkit-box-sizing:content-box;
+				   -moz-box-sizing:content-box;
+				        box-sizing:content-box;
+			}
+		</style>
 	</head>
 	<body onload="page_init();">
-		<textarea id="clippyTextInput">Hello, and welcome to my study.  My name is Mitchell.  You're always welcome to enjoy the things that I've found.  I'm lonely, and I collect things.</textarea>
-		<button onclick="clippy.displayMessage(document.getElementById('clippyTextInput').value);">Display</button>
+		<div id="main">
+			<h1>JS Clippy test page</h1>
+			<textarea id="clippyTextInput">Hello, and welcome to my study.  My name is Mitchell.  You're always welcome to enjoy the things that I've found.  I'm lonely, and I collect things.</textarea>
+			<br />
+			<button onclick="clippy.displayMessage(document.getElementById('clippyTextInput').value);">Display</button>
+		</div>
 	</body>
 </html>
