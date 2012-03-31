@@ -6,7 +6,7 @@ var clippy = {};
 clippy.init = function() {
 	// get Clippy's position
 	clippy.x = window.innerWidth - 300;
-	clippy.y = Math.round(window.innerHeight * 0.3);
+	clippy.y = Math.round(window.innerHeight * 0.45);
 	if(!!localStorage) {
 		if(!!localStorage.x ) {
 			clippy.x = localStorage.x;
@@ -174,7 +174,6 @@ clippy.reposition = function() {
 		clippy.x = window.innerWidth - clippy.elem.offsetWidth;
 	}
 	if(clippy.y + clippy.elem.offsetHeight > window.innerHeight) {
-		//clippy.y = Math.round(window.innerHeight * 0.3);
 		clippy.y = window.innerHeight - clippy.elem.offsetHeight;
 	}
 	if(clippy.x < 0) {
