@@ -1,9 +1,5 @@
 var clippy = {};
 
-function page_init() {
-	clippy.init();
-}
-
 /**
  * Initializes Clippy's elements and events
  */
@@ -202,6 +198,32 @@ clippy.reposition = function() {
 		clippy.bubbleArrowCell.className = "right";
 	}
 	clippy.bubbleElem.style.top = (clippy.y - clippy.bubbleElem.offsetHeight) + "px";
+}
+
+/**
+ * Hides Clippy
+ */
+clippy.hide = function() {
+	clippy.bubbleElem.style.visibility = "hidden";
+	
+	clippy.elem.style.WebkitTransform = "scale(0)";
+	   clippy.elem.style.MozTransform = "scale(0)";
+	    clippy.elem.style.MSTransform = "scale(0)";
+	     clippy.elem.style.OTransform = "scale(0)";
+	      clippy.elem.style.transform = "scale(0)";
+}
+
+/**
+ * Shows Clippy after being hidden
+ */
+clippy.show = function() {
+	clippy.bubbleElem.style.visibility = "visible";
+	
+	clippy.elem.style.WebkitTransform = null;
+	   clippy.elem.style.MozTransform = null;
+	    clippy.elem.style.MSTransform = null;
+	     clippy.elem.style.OTransform = null;
+	      clippy.elem.style.transform = null;
 }
 
 function getMouseX(event) {

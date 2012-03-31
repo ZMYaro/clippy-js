@@ -5,6 +5,21 @@
 	width:94px;
 	height:86px;
 	z-index:1000;
+	
+	-webkit-transition-property:-webkit-transform;
+	-webkit-transition-property:        transform;
+	   -moz-transition-property:   -moz-transform;
+	   -moz-transition-property:        transform;
+	    -ms-transition-property:    -ms-transform;
+	    -ms-transition-property:        transform;
+	     -o-transition-property:     -o-transform;
+	     -o-transition-property:        transform;
+	        transition-property:        transform;
+	-webkit-transition-duration:0.1s;
+	   -moz-transition-duration:0.1s;
+	    -ms-transition-duration:0.1s;
+	     -o-transition-duration:0.1s;
+	        transition-duration:0.1s;
 }
 
 #clippyBubble {
@@ -101,4 +116,11 @@
 #clippyBubbleArrow.right div {
 	background-position:0px -18px;	
 	margin:0px 56px 0px auto;
+}
+
+
+#clippyBubbleText a li, #clippyBubbleText li a {
+	list-style-image:url(bullet.png);
+	color:black;
+	text-decoration:none;
 }
