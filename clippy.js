@@ -104,7 +104,6 @@ clippy.init = function() {
 	
 	clippy.elem.onmousedown = clippy.startDrag;
 	clippy.elem.onmouseup = clippy.stopDrag;
-	document.body.onmouseout = clippy.stopDrag;
 	
 	window.addEventListener("resize", clippy.reposition, false);
 	//window.onresize = clippy.reposition;
@@ -135,9 +134,7 @@ clippy.startDrag = function(e) {
 	clippy.bubbleElem.style.visibility = "hidden";
 	
 	document.body.onmousemove = clippy.move;
-	if(!!document.body.onmouseleave) {
-		document.body.onmouseleave = clippy.stopDrag;
-	}
+	document.body.onmouseleave = clippy.stopDrag;
 	document.body.onmouseup = clippy.stopDrag;
 }
 
@@ -162,7 +159,7 @@ clippy.stopDrag = function(e) {
 	      document.body.style.userSelect = null;
 	
 	document.body.onmousemove = null; // remove drag event
-	document.body.onmouseout = null;
+	document.body.onmouseleave = null;
 	document.body.onmouseup = null;
 	
 	clippy.bubbleElem.style.visibility = "visible";
