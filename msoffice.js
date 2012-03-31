@@ -108,6 +108,7 @@ clippy.init = function() {
 	
 	clippy.elem.onmousedown = clippy.startDrag;
 	clippy.elem.onmouseup = clippy.stopDrag;
+	document.body.onmouseout = clippy.stopDrag;
 	
 	window.addEventListener("resize", clippy.reposition, false);
 	//window.onresize = clippy.reposition;
@@ -119,6 +120,7 @@ clippy.init = function() {
  */
 clippy.displayMessage = function(text) {
 	clippy.bubbleText.innerHTML = text;
+	clippy.bubbleElem.style.visibility = "visible";
 	clippy.reposition();
 }
 
@@ -127,13 +129,19 @@ clippy.displayMessage = function(text) {
  * @param {event} e - The mouse event
  */
 clippy.startDrag = function(e) {
+	document.body.style.WebkitUserSelect = "none";
+	   document.body.style.MozUserSelect = "none";
+	      document.body.style.userSelect = "none";
+	
 	clippy.mouseXOffset = getMouseX(e) - clippy.x;
 	clippy.mouseYOffset = getMouseY(e) - clippy.y;
 	
 	clippy.bubbleElem.style.visibility = "hidden";
 	
 	document.body.onmousemove = clippy.move;
-	document.body.onmouseout = clippy.stopDrag;
+	if(!!document.body.onmouseleave) {
+		document.body.onmouseleave = clippy.stopDrag;
+	}
 	document.body.onmouseup = clippy.stopDrag;
 }
 
@@ -153,6 +161,10 @@ clippy.move = function(e) {
  * @param {event} e - The mouse event
  */
 clippy.stopDrag = function(e) {
+	document.body.style.WebkitUserSelect = null;
+	   document.body.style.MozUserSelect = null;
+	      document.body.style.userSelect = null;
+	
 	document.body.onmousemove = null; // remove drag event
 	document.body.onmouseout = null;
 	document.body.onmouseup = null;
