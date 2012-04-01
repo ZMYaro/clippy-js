@@ -105,14 +105,23 @@ clippy.init = function() {
 	clippy.elem.onmousedown = clippy.startDrag;
 	clippy.elem.onmouseup = clippy.stopDrag;
 	
-	window.addEventListener("resize", clippy.reposition, false);
-	//window.onresize = clippy.reposition;
-	window.addEventListener("unload", function() {
-		if(!!localStorage) {
-			localStorage.clippyX = clippy.x;
-			localStorage.clippyY = clippy.y;
-		}
-	}, false);
+	if(!!window.addEventListener) {
+		window.addEventListener("resize", clippy.reposition, false);
+		window.addEventListener("unload", function() {
+			if(!!localStorage) {
+				localStorage.clippyX = clippy.x;
+				localStorage.clippyY = clippy.y;
+			}
+		}, false);
+	} else {
+		window.onresize = clippy.reposition;
+		window.onunload = function() {
+			if(!!localStorage) {
+				localStorage.clippyX = clippy.x;
+				localStorage.clippyY = clippy.y;
+			}
+		};
+	}
 };
 
 /**
