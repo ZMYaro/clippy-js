@@ -107,7 +107,7 @@ clippy.init = function() {
 	
 	window.addEventListener("resize", clippy.reposition, false);
 	//window.onresize = clippy.reposition;
-}
+};
 
 /**
  * Displays a message in a speech bubble
@@ -117,7 +117,7 @@ clippy.displayMessage = function(text) {
 	clippy.bubbleText.innerHTML = text;
 	clippy.bubbleElem.style.visibility = "visible";
 	clippy.reposition();
-}
+};
 
 /**
  * Begin dragging Clippy
@@ -136,7 +136,7 @@ clippy.startDrag = function(e) {
 	document.body.onmousemove = clippy.move;
 	document.body.onmouseleave = clippy.stopDrag;
 	document.body.onmouseup = clippy.stopDrag;
-}
+};
 
 /**
  * Moves clippy with the mouse
@@ -147,7 +147,7 @@ clippy.move = function(e) {
 	clippy.y = getMouseY(e) - clippy.mouseYOffset;
 	clippy.elem.style.left = clippy.x + "px";
 	clippy.elem.style.top = clippy.y + "px";
-}
+};
 
 /**
  * Stop dragging clippy and move it back inside the window if necessary
@@ -164,7 +164,7 @@ clippy.stopDrag = function(e) {
 	
 	clippy.bubbleElem.style.visibility = "visible";
 	clippy.reposition();
-}
+};
 
 /**
  * Repositions Clippy within the screen
@@ -194,7 +194,7 @@ clippy.reposition = function() {
 		clippy.bubbleArrowCell.className = "right";
 	}
 	clippy.bubbleElem.style.top = (clippy.y - clippy.bubbleElem.offsetHeight) + "px";
-}
+};
 
 /**
  * Hides Clippy
@@ -207,7 +207,7 @@ clippy.hide = function() {
 	    clippy.elem.style.MSTransform = "scale(0)";
 	     clippy.elem.style.OTransform = "scale(0)";
 	      clippy.elem.style.transform = "scale(0)";
-}
+};
 
 /**
  * Shows Clippy after being hidden
@@ -220,7 +220,7 @@ clippy.show = function() {
 	    clippy.elem.style.MSTransform = null;
 	     clippy.elem.style.OTransform = null;
 	      clippy.elem.style.transform = null;
-}
+};
 
 function getMouseX(event) {
 	if (!event) {
